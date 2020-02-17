@@ -66,8 +66,8 @@ module scenes
         {
             this._machine = new objects.Image(config.Game.ASSETS.getResult("machine"), "machine", 0, 0, false);
             
-            this._reel1 = new objects.Image(config.Game.ASSETS.getResult("banana"), "reel2", 124, 307, false);
-            this._reel2 = new objects.Image(config.Game.ASSETS.getResult("bar"), "reel2", 186, 307, false);
+            this._reel1 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel2", 124, 307, false);
+            this._reel2 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel2", 186, 307, false);
             this._reel3 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel3", 248, 307, false);
 
 

@@ -52,8 +52,8 @@ var scenes;
         // PUBLIC METHODS
         Play.prototype.Start = function () {
             this._machine = new objects.Image(config.Game.ASSETS.getResult("machine"), "machine", 0, 0, false);
-            this._reel1 = new objects.Image(config.Game.ASSETS.getResult("banana"), "reel2", 124, 307, false);
-            this._reel2 = new objects.Image(config.Game.ASSETS.getResult("bar"), "reel2", 186, 307, false);
+            this._reel1 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel2", 124, 307, false);
+            this._reel2 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel2", 186, 307, false);
             this._reel3 = new objects.Image(config.Game.ASSETS.getResult("blank"), "reel3", 248, 307, false);
             //instantiate a new Text object
             this._welcomeLabel = new objects.Label("Welcome", "40px", "Consolas", "#FFFF00", 205, 175, true);
