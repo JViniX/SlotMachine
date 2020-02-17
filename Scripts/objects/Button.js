@@ -23,6 +23,7 @@ var objects;
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
             var _this = _super.call(this, imagePath, x, y, isCentered) || this;
+            _this.alpha = 0.8;
             _this.on("mouseover", _this.MouseOver);
             _this.on("mouseout", _this.MouseOut);
             _this.Start();
@@ -33,10 +34,10 @@ var objects;
         };
         // PUBLIC METHODS
         Button.prototype.MouseOver = function () {
-            this.alpha = 0.8;
+            this.alpha = 1.0;
         };
         Button.prototype.MouseOut = function () {
-            this.alpha = 1.0;
+            this.alpha = 0.8;
         };
         /**
          * This function is used for initialization

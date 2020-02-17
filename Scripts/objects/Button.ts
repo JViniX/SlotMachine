@@ -8,7 +8,7 @@ module objects
             , x:number = 0, y:number= 0, isCentered:boolean = false)
         {
             super(imagePath, x, y, isCentered);
-
+            this.alpha = 0.8;
             this.on("mouseover", this.MouseOver);
             this.on("mouseout", this.MouseOut);
 
@@ -24,12 +24,12 @@ module objects
         // PUBLIC METHODS
         MouseOver():void
         {
-            this.alpha = 0.8;
+            this.alpha = 1.0;
         }
 
         MouseOut():void
         {
-            this.alpha = 1.0;
+            this.alpha = 0.8;
         }
 
         /**

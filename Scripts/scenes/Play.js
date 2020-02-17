@@ -246,18 +246,20 @@ var scenes;
             }
             this.turn++;
             this.winRatio = this.winNumber / this.turn;
-            //this._lblTest.setText(this.playerMoney.toString());
         };
+        // This function prompts the user to enter money to 
+        // play and updates the statistics on the screen. 
         Play.prototype.insertCoin = function () {
             var promptValue = prompt('Please, insert your money to play:', '');
             if (promptValue != null) {
                 this.playerMoney = +promptValue;
             }
             else {
-                alert("You cannot play without Money!");
+                this._lblMessage.setText("No money, no game!");
             }
             this.showPlayerStats();
         };
+        // Main scene methon.
         Play.prototype.Main = function () {
             var _this = this;
             console.log("%c Main Started...", "color: green; font-size: 16px;");
@@ -280,33 +282,36 @@ var scenes;
             this.addChild(this._downBetButton);
             this.showPlayerStats();
             this.insertCoin();
+            // Increases the value of the bet.
             this._upBetButton.on("click", function () {
-                _this.playerBet += 10; //$("div#betEntry>input").val();
+                _this.playerBet += 10;
+                _this._lblMessage.setText("Let's Spin!");
                 _this.showPlayerStats();
             });
+            // Decreases the value of the bet.
             this._downBetButton.on("click", function () {
-                _this.playerBet -= 10; //$("div#betEntry>input").val();
+                _this.playerBet -= 10;
+                _this._lblMessage.setText("Let's Spin!");
                 _this.showPlayerStats();
             });
+            // Asks confirmation to exit the game.
             this._exitButton.on("click", function () {
                 if (confirm("Would you like to EXIT the game?")) {
                     config.Game.SCENE = scenes.State.END;
                 }
             });
+            // Asks confirmation to reset the game.
             this._resetButton.on("click", function () {
                 if (confirm("Would you like to RESET the game?")) {
                     _this.resetAll();
                     _this.showPlayerStats();
                 }
             });
+            // Spins the reels.
             this._startButton.on("click", function () {
-                //this.playerBet = 10; //$("div#betEntry>input").val();
                 _this._lblBet.setText("Player Bet: $" + _this.playerBet);
                 if (_this.playerMoney == 0) {
                     _this.insertCoin();
-                    //alert("You ran out of Money!");
-                    //config.Game.SCENE = scenes.State.END;
-                    // 
                 }
                 else if (_this.playerBet > _this.playerMoney) {
                     alert("You don't have enough Money to place that bet.");
