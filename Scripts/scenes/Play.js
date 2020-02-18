@@ -304,6 +304,7 @@ var scenes;
             this._resetButton.on("click", function () {
                 if (confirm("Would you like to RESET the game?")) {
                     _this.resetAll();
+                    _this.insertCoin();
                     _this.showPlayerStats();
                 }
             });

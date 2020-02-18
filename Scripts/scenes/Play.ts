@@ -365,6 +365,7 @@ module scenes
             this._resetButton.on("click", ()=>{
                 if (confirm("Would you like to RESET the game?")) {
                     this.resetAll();
+                    this.insertCoin();
                     this.showPlayerStats();
                 }
             });
