@@ -38,7 +38,9 @@ var objects;
         };
         // PUBLIC METHODS
         Image.prototype.setImage = function (imagePath) {
-            this.image = new createjs.Bitmap(imagePath).image;
+            //this.image = new createjs.Bitmap(imagePath).image;
+            var background;
+            background.image = new createjs.Bitmap("").image;
         };
         Image.prototype.Start = function () {
         };

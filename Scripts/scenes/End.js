@@ -27,6 +27,10 @@ var scenes;
         // CONSTRUCTOR
         function End() {
             var _this = _super.call(this) || this;
+            _this.kleft = 37;
+            _this.kup = 38;
+            _this.kright = 39;
+            _this.kdown = 40;
             _this.Start();
             return _this;
         }
@@ -43,13 +47,35 @@ var scenes;
         };
         End.prototype.Update = function () {
         };
+        End.prototype.onDPad = function (e) {
+            switch (e.keyCode) {
+                case this.kleft:
+                    console.log('Move Left');
+                    break;
+                case this.kup:
+                    console.log('Move Up');
+                    break;
+                case this.kright:
+                    console.log('Move Right');
+                    break;
+                case this.kdown:
+                    console.log('Move Down');
+                    break;
+            }
+        };
         End.prototype.Main = function () {
+            var _this = this;
             this.addChild(this._machine);
             this.addChild(this._welcomeLabel);
             this.addChild(this._lblMessage);
+            //window.onkeydown = this.onDPad;
             this.addChild(this._startButton);
             this._startButton.on("click", function () {
                 config.Game.SCENE = scenes.State.PLAY;
+            });
+            window.addEventListener('keydown', function (e) {
+                console.log('Keycode = ' + e.keyCode);
+                _this.onDPad(e);
             });
         };
         return End;

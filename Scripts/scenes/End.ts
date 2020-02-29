@@ -16,6 +16,12 @@ module scenes
         private _machine: objects.Image;
         private _lblMessage: objects.Label;
 
+        private kleft = 37;
+        private kup = 38;
+        private kright = 39;
+        private kdown = 40;
+
+
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
@@ -44,6 +50,23 @@ module scenes
         public Update(): void 
         {
         }
+
+        private onDPad(e: KeyboardEvent) {
+            switch (e.keyCode){
+                case this.kleft:
+                    console.log('Move Left');
+                    break;
+                case this.kup:
+                    console.log('Move Up');
+                    break;
+                case this.kright:
+                    console.log('Move Right');
+                    break;
+                case this.kdown:
+                    console.log('Move Down');
+                    break;
+            }
+        }
         
         public Main(): void 
         {
@@ -52,10 +75,18 @@ module scenes
             this.addChild(this._welcomeLabel);
             this.addChild(this._lblMessage);
         
+            //window.onkeydown = this.onDPad;
+            
             this.addChild(this._startButton);
 
             this._startButton.on("click", ()=>{
                 config.Game.SCENE = scenes.State.PLAY;
+            });
+
+            window.addEventListener('keydown', (e)=>
+            {
+                console.log('Keycode = ' + e.keyCode);
+                this.onDPad(e);
             });
 
         }

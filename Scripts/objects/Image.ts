@@ -28,7 +28,10 @@ module objects
         // PUBLIC METHODS
         public setImage(imagePath:Object):void
         {
-            this.image = new createjs.Bitmap(imagePath).image;
+            //this.image = new createjs.Bitmap(imagePath).image;
+
+            let background : createjs.Bitmap;
+            background.image = new createjs.Bitmap("").image;
         }
 
         public Start(): void {
